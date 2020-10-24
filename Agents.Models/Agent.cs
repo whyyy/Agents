@@ -5,20 +5,20 @@ namespace Agents.Models
 {
     public class Agent  :IAgent
     {
-        public Agent(AgentColorName agentColorName, bool isStarting)
+        public Agent(AgentColorName agentColorName, bool isFirstMoving)
         {
             ColorName = agentColorName;
-            IsStarting = isStarting;
+            IsFirstMoving = isFirstMoving;
         }
         
         public AgentColorName ColorName { get; set; }
         public int MovesLeft { get; set; }
         public int MovesDone { get; set; }
-        public bool IsStarting { get; set; }
+        public bool IsFirstMoving { get; set; }
 
         public void ApplyStartingAgentRules()
         {
-            if (IsStarting)
+            if (IsFirstMoving)
             {
                 MovesLeft = 9;
             }
