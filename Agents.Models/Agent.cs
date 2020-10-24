@@ -5,10 +5,9 @@ namespace Agents.Models
 {
     public class Agent  :IAgent
     {
-        public Agent(AgentColorName agentColorName, bool isFirstMoving)
+        public Agent(AgentColorName agentColorName)
         {
             ColorName = agentColorName;
-            IsFirstMoving = isFirstMoving;
         }
         
         public AgentColorName ColorName { get; set; }
