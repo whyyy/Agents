@@ -10,7 +10,7 @@ namespace Agents.Models.Tests
         [SetUp]
         public void Setup()
         {
-            _agent = new Agent(AgentColorName.Red);
+            _agent = new Agent(ColorNames.Red);
         }
 
         [Test]

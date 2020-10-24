@@ -1,6 +1,6 @@
 ﻿namespace Agents.Models.Helpers
 {
-    public enum AgentColorName
+    public enum ColorNames
     {
         Blue,
         Red,

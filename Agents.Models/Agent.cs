@@ -5,12 +5,12 @@ namespace Agents.Models
 {
     public class Agent  :IAgent
     {
-        public Agent(AgentColorName agentColorName)
+        public Agent(ColorNames colorName)
         {
-            ColorName = agentColorName;
+            ColorName = colorName;
         }
         
-        public AgentColorName ColorName { get; set; }
+        public ColorNames ColorName { get; set; }
         public int MovesLeft { get; set; }
         public int MovesDone { get; set; }
         public bool IsFirstMoving { get; set; }
