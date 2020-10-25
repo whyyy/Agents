@@ -6,7 +6,5 @@ namespace Agents.Models
     {
         public string  FirstMovingColor { get; set; }
         public List<string> ColorNames { get; set; }
-        
-        public void GenerateKeyCard();
     }
 }
