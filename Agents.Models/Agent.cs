@@ -3,7 +3,7 @@ using Agents.Models.Helpers;
 
 namespace Agents.Models
 {
-    public class Agent  :IAgent
+    public class Agent : IAgent
     {
         public Agent(ColorName colorName)
         {
@@ -14,17 +14,5 @@ namespace Agents.Models
         public int MovesLeft { get; set; }
         public int MovesDone { get; set; }
         public bool IsFirstMoving { get; set; }
-
-        public void ApplyStartingAgentRules()
-        {
-            if (IsFirstMoving)
-            {
-                MovesLeft = 9;
-            }
-            else
-            {
-                MovesLeft = 8;
-            }
-        }
     }
 }

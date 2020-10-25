@@ -8,7 +8,5 @@ namespace Agents.Models
         public int MovesLeft { get; set; }
         public int MovesDone { get; set; }
         public bool IsFirstMoving { get; set; }
-
-        public void ApplyStartingAgentRules();
     }
 }
