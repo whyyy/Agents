@@ -24,6 +24,7 @@ namespace Agents.Infrastructure.Autofac
             _builder.RegisterType<KeyCard>().As<IKeyCard>();
             _builder.RegisterType<Agent>().As<IAgent>();
             _builder.RegisterType<KeyCardGenerator>().As<IKeyCardGenerator>();
+            _builder.RegisterType<AgentGenerator>().As<IAgentGenerator>();
         }
     }
 }
