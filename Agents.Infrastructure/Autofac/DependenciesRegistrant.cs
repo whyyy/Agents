@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using Agents.Infrastructure.DataLoaders;
 using Agents.Infrastructure.Generators;
+using Agents.Infrastructure.Helpers;
 using Agents.Models;
 using Autofac;
 
@@ -33,6 +34,8 @@ namespace Agents.Infrastructure.Autofac
             _builder.RegisterType<FileLoader>().As<IFileLoader>();
             _builder.RegisterType<KeyCardGenerator>().As<IKeyCardGenerator>();
             _builder.RegisterType<AgentGenerator>().As<IAgentGenerator>();
+            _builder.RegisterType<WordsLoader>().As<IWordsLoader>();
+            _builder.RegisterType<StringListCreator>().As<IStringListCreator>();
         }
     }
 }
