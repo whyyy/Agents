@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Agents.Infrastructure.DataLoaders;
+﻿using Agents.Infrastructure.DataLoaders;
 using Agents.Infrastructure.Generators;
 using Agents.Infrastructure.Helpers;
 using Agents.Models;
@@ -19,6 +18,7 @@ namespace Agents.Infrastructure.Autofac
         public void RegisterDependencies()
         {
             RegisterModels();
+            RegisterInfrastructure();
             _builder.Build();
         }
 
@@ -27,6 +27,7 @@ namespace Agents.Infrastructure.Autofac
             _builder.RegisterType<KeyCard>().As<IKeyCard>();
             _builder.RegisterType<Agent>().As<IAgent>();
             _builder.RegisterType<Word>().As<IWord>();
+            _builder.RegisterType<Board>().As<IBoard>();
         }
 
         private void RegisterInfrastructure()
@@ -36,6 +37,7 @@ namespace Agents.Infrastructure.Autofac
             _builder.RegisterType<AgentGenerator>().As<IAgentGenerator>();
             _builder.RegisterType<WordsLoader>().As<IWordsLoader>();
             _builder.RegisterType<StringListCreator>().As<IStringListCreator>();
+            _builder.RegisterType<BoardGenerator>().As<IBoardGenerator>();
         }
     }
 }
