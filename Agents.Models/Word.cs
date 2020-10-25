@@ -8,5 +8,12 @@ namespace Agents.Models
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public ColorName ColorName { get; set; }
+
+        public Word(string name, int position)
+        {
+            Name = name;
+            Position = position;
+            IsActive = true;
+        }
     }
 }
