@@ -2,7 +2,7 @@
 using Agents.Models;
 using Autofac;
 
-namespace Agents.Infrastructure.DependencyContainer
+namespace Agents.Infrastructure.Autofac
 {
     public class DependenciesRegistrant
     {
