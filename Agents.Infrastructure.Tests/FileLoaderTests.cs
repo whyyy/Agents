@@ -1,3 +1,4 @@
+using Agents.Data.Consts;
 using Agents.Infrastructure.DataLoaders;
 using NUnit.Framework;
 
@@ -15,13 +16,13 @@ namespace Agents.Infrastructure.Tests
         [Test]
         public void Should_OpenFile_When_Load()
         {
-            _fileLoader.Load(@"D:\repos\AgentsGame\Agents\Agents\Agents.Data\Words.txt");
+            _fileLoader.Load(FileDetails.FilePath);
         }
 
         [Test]
         public void Should_LoadedWordsNotBeEmpty_When_Load()
         {
-            _fileLoader.Load(@"D:\repos\AgentsGame\Agents\Agents\Agents.Data\Words.txt");
+            _fileLoader.Load(FileDetails.FilePath);
             Assert.IsNotEmpty(_fileLoader.LoadedWords);
         }
     }
