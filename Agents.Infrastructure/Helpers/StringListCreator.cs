@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Agents.Infrastructure.Helpers
 {
@@ -7,7 +8,7 @@ namespace Agents.Infrastructure.Helpers
     {
         public List<string> PrepareList(string wordsSeparatedWithCommas)
         {
-            throw new NotImplementedException();
+            return new List<string>(wordsSeparatedWithCommas.Split(','));
         }
     }
 }
