@@ -10,5 +10,6 @@ namespace Agents.Infrastructure.Helpers
         {
             return new List<string>(wordsSeparatedWithCommas.Split(','));
         }
+        //todo: Remove carriageReturn
     }
 }
