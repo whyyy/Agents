@@ -9,7 +9,7 @@ namespace Agents.Infrastructure.Helpers
     {
         public List<string> PrepareList(string wordsSeparatedWithCommas)
         {
-            var words = wordsSeparatedWithCommas.Split(',').Select(w=> w.RemoveFormatting()).ToList();
+            var words = wordsSeparatedWithCommas.Split(',').Select(w => w.RemoveFormatting()).ToList();
             return words;
         }
     }
