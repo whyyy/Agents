@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Agents.Infrastructure.Extensions;
 
 namespace Agents.Infrastructure.Helpers
 {
@@ -8,8 +9,8 @@ namespace Agents.Infrastructure.Helpers
     {
         public List<string> PrepareList(string wordsSeparatedWithCommas)
         {
-            return new List<string>(wordsSeparatedWithCommas.Split(','));
+            var words = wordsSeparatedWithCommas.Split(',').Select(w=> w.RemoveFormatting()).ToList();
+            return words;
         }
-        //todo: Remove carriageReturn
     }
 }
