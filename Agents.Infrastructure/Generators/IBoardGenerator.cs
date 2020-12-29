@@ -1,9 +1,10 @@
 ﻿using Agents.Infrastructure.Helpers;
+using Agents.Models;
 
 namespace Agents.Infrastructure.Generators
 {
     public interface IBoardGenerator
     {
-        void GenerateBoard(LoadingType loadingType);
+        IBoard GenerateBoard(LoadingType loadingType);
     }
 }

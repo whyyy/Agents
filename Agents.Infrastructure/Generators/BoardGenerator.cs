@@ -20,12 +20,12 @@ namespace Agents.Infrastructure.Generators
             _random = new Random();
         }
         
-        public void GenerateBoard(LoadingType loadingType)
+        public IBoard GenerateBoard(LoadingType loadingType)
         {
             _wordsLoader.LoadWords(loadingType);
             if (_wordsLoader.StringWords.Count < 1)
             {
-                return;
+                return null;
             }
 
             var position = 1;
@@ -39,6 +39,8 @@ namespace Agents.Infrastructure.Generators
             }
 
             MatchColorsFromKeyCard();
+
+            return _board;
         }
 
         private string PickRandomWord()

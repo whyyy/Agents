@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Agents.Data.Consts;
+﻿using Agents.Data.Consts;
 using Agents.Infrastructure.DataLoaders;
 using Agents.Infrastructure.Generators;
 using Agents.Infrastructure.Helpers;

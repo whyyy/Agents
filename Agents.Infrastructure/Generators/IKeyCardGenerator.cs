@@ -1,7 +1,9 @@
-﻿namespace Agents.Infrastructure.Generators
+﻿using Agents.Models;
+
+namespace Agents.Infrastructure.Generators
 {
     public interface IKeyCardGenerator
     {
-        public void GenerateKeyCard();
+        public IKeyCard GenerateKeyCard();
     }
 }

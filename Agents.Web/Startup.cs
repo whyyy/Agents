@@ -1,4 +1,7 @@
+using System;
 using Agents.Infrastructure.Autofac;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,11 +14,22 @@ namespace Agents.Web
     {
         private readonly DependenciesRegistrant _dependenciesRegistrant = new DependenciesRegistrant();
         
+        public IContainer ApplicationContainer { get; private set; }
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            _dependenciesRegistrant.RegisterDependencies();
+            services.AddMvc();
+
+            // Create the container builder.
+            var builder = new ContainerBuilder();
+            _dependenciesRegistrant.RegisterDependencies(builder);
+            builder.Populate(services);
+            ApplicationContainer = builder.Build();
+            // Create the IServiceProvider based on the container.
+            return new AutofacServiceProvider(ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

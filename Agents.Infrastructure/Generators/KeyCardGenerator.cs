@@ -23,12 +23,13 @@ namespace Agents.Infrastructure.Generators
             _keyCard = keyCard;
         }
         
-        public void GenerateKeyCard()
+        public IKeyCard GenerateKeyCard()
         {
             PickFirstMovingColor();
             SetMaxQuantities();
             PrepareColors();
             FillKeyCard();
+            return _keyCard;
         }
 
         private void FillKeyCard()

@@ -3,41 +3,34 @@ using Agents.Infrastructure.Generators;
 using Agents.Infrastructure.Helpers;
 using Agents.Models;
 using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Agents.Infrastructure.Autofac
 {
     public class DependenciesRegistrant
     {
-        private readonly ContainerBuilder _builder;
-
-        public DependenciesRegistrant()
+        public void RegisterDependencies(ContainerBuilder builder)
         {
-            _builder = new ContainerBuilder();
+            RegisterModels(builder);
+            RegisterInfrastructure(builder);
         }
 
-        public void RegisterDependencies()
+        private void RegisterModels(ContainerBuilder builder)
         {
-            RegisterModels();
-            RegisterInfrastructure();
-            _builder.Build();
+            builder.RegisterType<KeyCard>().As<IKeyCard>();
+            builder.RegisterType<Agent>().As<IAgent>();
+            builder.RegisterType<Word>().As<IWord>();
+            builder.RegisterType<Board>().As<IBoard>();
         }
 
-        private void RegisterModels()
+        private void RegisterInfrastructure(ContainerBuilder builder)
         {
-            _builder.RegisterType<KeyCard>().As<IKeyCard>();
-            _builder.RegisterType<Agent>().As<IAgent>();
-            _builder.RegisterType<Word>().As<IWord>();
-            _builder.RegisterType<Board>().As<IBoard>();
-        }
-
-        private void RegisterInfrastructure()
-        {
-            _builder.RegisterType<FileLoader>().As<IFileLoader>();
-            _builder.RegisterType<KeyCardGenerator>().As<IKeyCardGenerator>();
-            _builder.RegisterType<AgentGenerator>().As<IAgentGenerator>();
-            _builder.RegisterType<WordsLoader>().As<IWordsLoader>();
-            _builder.RegisterType<StringListCreator>().As<IStringListCreator>();
-            _builder.RegisterType<BoardGenerator>().As<IBoardGenerator>();
+            builder.RegisterType<FileLoader>().As<IFileLoader>();
+            builder.RegisterType<KeyCardGenerator>().As<IKeyCardGenerator>();
+            builder.RegisterType<AgentGenerator>().As<IAgentGenerator>();
+            builder.RegisterType<WordsLoader>().As<IWordsLoader>();
+            builder.RegisterType<StringListCreator>().As<IStringListCreator>();
+            builder.RegisterType<BoardGenerator>().As<IBoardGenerator>();
         }
     }
 }
